@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Event Handling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            margin: 20px auto;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>JavaScript Event Handling Demo</h1>
+
+    
+    <button onclick="changeText()">Click Me!</button>
+    <p id="message">This text will change.</p>
+
+    <div id="box"></div>
+    <button id="colorBtn">Change Box Color</button>
+
+    <script>
+        function changeText() {
+            const msg = document.getElementById("message");
+            msg.textContent = "Text changed! 🎉";
+            msg.style.color = "green";
+        }
+
+        const box = document.getElementById("box");
+        const colorBtn = document.getElementById("colorBtn");
+
+        colorBtn.addEventListener("click", () => {
+            const colors = ["lightblue", "lightgreen", "lightcoral", "lightgoldenrodyellow"];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            box.style.backgroundColor = randomColor;
+        });
+
+        box.addEventListener("mouseover", () => {
+            box.style.transform = "scale(1.2)"; 
+        });
+
+        box.addEventListener("mouseout", () => {
+            box.style.transform = "scale(1)"; 
+        });
+    </script>
+
+</body>
+</html>
